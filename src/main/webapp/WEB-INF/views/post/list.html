@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html lang="en">
+<head th:replace="/layout :: head">
+</head>
+<body>
+
+
+<h1 align="center">Post List</h1>
+<form method="get" th:action="@{/posts/search}">
+    <h1>Tìm Kiếm</h1>
+    <input type="text" th:name="title" placeholder="Nhập Title">
+    <input type="submit" value="Tìm">
+</form>
+<a  href="/posts/create">
+    <button>Tạo mới</button>
+</a>
+
+<br>
+<a href="/posts/findLike">
+    <button>sắp xếp Like</button>
+</a>
+<center>
+    <table id = "post">
+        <thead>
+        <tr>
+            <th>Title</th>
+            <th>Content</th>
+            <th>Date-Time</th>
+            <th>Likes</th>
+            <th>Edit</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="pos: ${posts}">
+            <td th:text="${pos.getTitle()}"></td>
+            <td th:text="${pos.getContent()}"></td>
+            <td th:text="${pos.getCreateAt()}"></td>
+            <td th:text="${pos.getLikes()}"></td>
+            <td>  <a th:href="@{/posts/edit/__${pos.id}__}">Sửa</a>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+    </div>
+</center>
+</body>
+</html>

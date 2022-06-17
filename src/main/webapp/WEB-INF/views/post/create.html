@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="/layout :: head"></head>
+<body>
+<p>
+    <a th:href="@{/posts}">
+        <button>Quay Lại</button>
+    </a>
+</p>
+<center>
+    <h1>Add Post</h1>
+    <div id="form">
+        <form method="post">
+            <div>
+                <label>Title</label>
+                <input type="text" name="Title">
+            </div>
+            <div>
+                <label>Content</label>
+                <input type="text" name="content">
+            </div>
+            <input type="hidden" name="createAt">
+            <div>
+                <label>Likes</label>
+                <input type="text" name="likes">
+            </div>
+            <input type="submit" value="Tạo Mới">
+
+        </form>
+    </div>
+</center>
+</body>
+</html>
